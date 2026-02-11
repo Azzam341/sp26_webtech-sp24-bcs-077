@@ -1,5 +1,21 @@
-button
+header
 {
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #222222;
     color: white;
-    border-radius: 10px;
+}
+.header-element
+{
+    padding-left: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+#wallet
+{
+    margin-left: auto;
+}
+#search
+{
+    padding-left: 510px;
 }
