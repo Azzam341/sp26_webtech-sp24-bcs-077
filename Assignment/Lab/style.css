@@ -1,21 +1,53 @@
-header
+#intro-section
+{
+    padding-left: 17em;
+    padding-top: 17em;
+    padding-bottom: 17em;
+
+}
+#main-logo-image
+{
+    height: 99px;
+    width: 143px;
+    padding-left: 17em;
+}
+
+#main-heading-elements
+{
+    height: 452px;
+    width: 672px;
+}
+
+.main-heading-elements-class
+{
+    padding-left: 5em;
+}
+
+.pick-your-meal-button-class
+{
+    padding-left: 20em;
+}
+
+.more-section-element-class
+{
+    padding-left: 20em;
+    height: 250px;
+    width: 250px;
+}
+
+#love-us-video
+{
+    width: 1280px;
+    height: 640px;
+    padding-left: 20em;
+}
+
+#stats
+{
+    background-color: #2e8b00;
+}
+
+#horizontal-image
 {
     display: flex;
-    padding-left: 50px;
-    padding-right: 50px;
-    background-color: #222222;
-    color: white;
-}
-.header-element
-{
-    padding-left: 25px;
-    font-family: 'Courier New', Courier, monospace;
-}
-#wallet
-{
-    margin-left: auto;
-}
-#search
-{
-    padding-left: 510px;
 }
