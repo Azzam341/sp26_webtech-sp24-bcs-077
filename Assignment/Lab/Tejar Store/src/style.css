@@ -1,0 +1,17 @@
+.banner-para
+{
+    float: right;
+    width: 20%;
+    margin: 0.5em;
+}
+
+#deals
+{
+    padding-top: 30em;
+    display: flex;
+}
+
+#category-icons
+{
+    background-color: grey;
+}

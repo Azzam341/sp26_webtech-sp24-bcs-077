@@ -1,0 +1,5 @@
+const el = document.createElement("div");
+el.id = "pixel-heartbeat"
+el.hidden = true
+el.classList.add("hidden")
+document.body.appendChild(el);
