@@ -1,3 +1,8 @@
+body
+{
+    background-color: grey;
+}
+
 .banner-para
 {
     float: right;
@@ -8,31 +13,60 @@
 #deals
 {
     padding-top: 30em;
-    display: flex;
 }
 
-#specific-product-section
-{
-    display: flex;
-    flex-direction: column;
+#specific-product-section {
+    display: flex;   /* This kills the "white space" bug between divs */
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-#section-one
-{
-    display: flex;
+.section-product-pane {
+    width: 33.33%;  /* Exactly one third */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Crucial: prevents borders from adding to the width */
 }
 
-#section-two
-{
-    display: flex;
-}
-
-#section-three
-{
-    display: flex;
-}
 
 .text-button-horizontal-div
 {
     display: flex;
+}
+
+.text-button-horizontal-div button
+{
+    margin-left: 8em;
+}
+.horizontal-products
+{
+    display: flex;
+}
+
+.horizontal-products .card
+{
+    width: 18em;
+    margin: 1px;
+    .container {
+    overflow: hidden;
+}
+
+}
+
+footer
+{
+    background-color: #032260;
+    display: flex;
+}
+footer h2 , footer p, footer a
+{
+    color: white;
+    font-size: small;
+}
+footer div
+{
+    margin-left: 2em;
+    margin-right: 2em;
+
 }
