@@ -11,7 +11,28 @@
     display: flex;
 }
 
-#category-icons
+#specific-product-section
 {
-    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+#section-one
+{
+    display: flex;
+}
+
+#section-two
+{
+    display: flex;
+}
+
+#section-three
+{
+    display: flex;
+}
+
+.text-button-horizontal-div
+{
+    display: flex;
 }
