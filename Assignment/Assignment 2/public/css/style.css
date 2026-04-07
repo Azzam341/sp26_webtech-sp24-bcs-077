@@ -1,3 +1,4 @@
+
 /* Card container */
 .card {
   position: relative;
@@ -12,6 +13,11 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   margin: 1rem;
   overflow: hidden;
+}
+
+li
+{
+  padding: 0.375rem 0.75rem;
 }
 
 /* Card image */
@@ -103,6 +109,7 @@
     margin: 0;
 }
 
+
 .section-product-pane {
     width: 33.33%;  /* Exactly one third */
     padding: 0;
@@ -110,6 +117,16 @@
     box-sizing: border-box; /* Crucial: prevents borders from adding to the width */
 }
 
+@media (max-width: 768px) {
+  #specific-product-section {
+    flex-direction: column; /* stack items vertically */
+  }
+
+  .section-product-pane {
+    width: 100%;      /* take full width */
+    flex: 0 0 100%;   /* prevents flex from keeping them side-by-side */
+  }
+}
 
 .text-button-horizontal-div
 {
@@ -125,11 +142,21 @@
     display: flex;
 }
 
+@media (max-width: 768px) {
+  .horizontal-products {
+    flex-direction: column; /* stack items vertically */
+    width: 33%;
+  }
+
+
+
 .horizontal-products .card
 {
     width: 18em;
     margin: 1px;
 }
+}
+
 
 footer
 {
@@ -157,4 +184,76 @@ footer div
 {
         list-style-type: none;
 
+}
+
+/* General reset for the list */
+.horizontal-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  margin: 0;
+}
+
+/* Hide hamburger by default on desktop */
+#hamburger-menu {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hamburger button */
+#hamburger-menu {
+  display: none; /* default hidden for desktop */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+/* Horizontal menu - desktop */
+.horizontal-menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  #hamburger-menu {
+    display: block;
+  }
+
+  .horizontal-menu {
+    display: none; /* hide by default */
+    flex-direction: row; /* horizontal row */
+    flex-wrap: wrap;     /* wrap if too long */
+    width: 100%;
+    justify-content: flex-start;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Show menu when active */
+  .horizontal-menu.active {
+    display: flex;
+  }
+
+  .horizontal-menu li {
+    margin-right: 1rem;
+  }
+
+  .horizontal-menu li button {
+    width: auto; /* keep buttons natural width */
+    padding: 10px 12px;
+    text-align: center;
+    border: none;
+    background: transparent;
+  }
 }
