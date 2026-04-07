@@ -7,9 +7,9 @@
 
 .horizontal-menu {
     display: flex;
-    flex-direction: row; /* added from second block */
-    list-style-type: none; /* keeps first block's property */
-    list-style: none;      /* redundant, could remove */
+    flex-direction: row; 
+    list-style-type: none; 
+    list-style: none;      
     background-color: #032260;
     padding: 0;
     margin: 0;
@@ -44,7 +44,7 @@ header > ul > div > li > button{
 
 @media (max-width: 768px) {
   #nav-links {
-    display: none; /* stack items vertically */
+    display: none; 
   }
   #hamburger-menu{
     display: block;
@@ -71,9 +71,13 @@ header > ul > div > li > button{
   flex-wrap: wrap;             
 }
 
+#banner-img
+{
+  width: 1336px;
+}
 
 #specific-product-section {
-    display: flex;   /* This kills the "white space" bug between divs */
+    display: flex;   
     width: 100%;
     padding: 0;
     margin: 0;
@@ -81,20 +85,20 @@ header > ul > div > li > button{
 
 
 .section-product-pane {
-    width: 33.33%;  /* Exactly one third */
+    width: 33.33%;  
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* Crucial: prevents borders from adding to the width */
+    box-sizing: border-box; 
 }
 
 @media (max-width: 768px) {
   #specific-product-section {
-    flex-direction: column; /* stack items vertically */
+    flex-direction: column;
   }
 
   .section-product-pane {
-    width: 100%;      /* take full width */
-    flex: 0 0 100%;   /* prevents flex from keeping them side-by-side */
+    width: 100%;      
+    flex: 0 0 100%;   
   }
 }
 
@@ -114,7 +118,7 @@ header > ul > div > li > button{
 
 @media (max-width: 768px) {
   .horizontal-products {
-    flex-direction: column; /* stack items vertically */
+    flex-direction: column;
     width: 33%;
   }
 
