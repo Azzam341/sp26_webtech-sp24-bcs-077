@@ -116,19 +116,27 @@ header > ul > div > li > button{
     display: flex;
 }
 
+.horizontal-products {
+  display: flex;
+  flex-wrap: wrap;          
+  gap: 15px;                
+  justify-content: center;
+}
+
+.horizontal-products .card {
+  flex: 1 1 250px;          
+  max-width: 300px;
+}
+
+/* Tablet */
 @media (max-width: 768px) {
   .horizontal-products {
-    flex-direction: column;
-    width: 33%;
+    justify-content: center;
   }
 
-
-
-.horizontal-products .card
-{
-    width: 18em;
-    margin: 1px;
-}
+  .horizontal-products .card {
+    flex: 1 1 45%;          
+  }
 }
 
 .old-price {
