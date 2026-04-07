@@ -7,6 +7,7 @@
   </head>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <body>
     <!-- Header with logo, search bar, and navigation buttons -->
     <header>
@@ -286,78 +287,24 @@
       </div>
     </section>
 
-    <!-- Featured products section -->
-    <section id="featured">
-      <h3>Featured</h3>
-      <a href="">View All</a>
-      <div class="horizontal-products">
-        <!-- Repeat featured products 5 times -->
-        <div class="card">
-          <div class="card-body">
-            <p>Deal Ending Soon</p>
-            <img
-              src="/assets/apple_11__ipad_a16_chip_11th_gen_10_-_tejar_3.jpg"
-              alt="Apple iPad"
-            />
-            <h5>Apple 11 ipad</h5>
-            <p>
-              <span class="old-price">PKR 222,999</span>
-              <span class="new-price">PKR 199,999</span>
-            </p>
-            <button class="btn">Add to Cart</button>
-          </div>
-        </div>
+<section id="featured">
+  <h3>Featured Deals</h3>
+  <div class="horizontal-products" id="featured-container">
+    <!-- Cards will be injected here -->
+  </div>
+</section>
 
-        <div class="card">
-          <div class="card-body">
-            <p>Deal Ending Soon</p>
-            <img
-              src="/assets/apple_11__ipad_a16_chip_11th_gen_10_-_tejar_3.jpg"
-              alt="Apple iPad"
-            />
-            <h5>Apple 11 ipad</h5>
-            <p>
-              <span class="old-price">PKR 222,999</span>
-              <span class="new-price">PKR 199,999</span>
-            </p>
-            <button class="btn">Add to Cart</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <p>Deal Ending Soon</p>
-            <img
-              src="/assets/apple_11__ipad_a16_chip_11th_gen_10_-_tejar_3.jpg"
-              alt="Apple iPad"
-            />
-            <h5>Apple 11 ipad</h5>
-            <p>
-              <span class="old-price">PKR 222,999</span>
-              <span class="new-price">PKR 199,999</span>
-            </p>
-            <button class="btn">Add to Cart</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <p>Deal Ending Soon</p>
-            <img
-              src="/assets/apple_11__ipad_a16_chip_11th_gen_10_-_tejar_3.jpg"
-              alt="Apple iPad"
-            />
-            <h5>Apple 11 ipad</h5>
-            <p>
-              <span class="old-price">PKR 222,999</span>
-              <span class="new-price">PKR 199,999</span>
-            </p>
-            <button class="btn">Add to Cart</button>
-          </div>
-        </div>
-        
-      </div>
-    </section>
+<!-- Quick View Modal -->
+<div id="quick-view-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <img id="modal-image" src="" alt="" style="max-width:200px;"/>
+    <h4 id="modal-title"></h4>
+    <p id="modal-description"></p>
+    <p id="modal-price"></p>
+    <p id="modal-rating"></p>
+  </div>
+</div>
 
     <!-- Featured brands section -->
     <section id="featured-brands">
