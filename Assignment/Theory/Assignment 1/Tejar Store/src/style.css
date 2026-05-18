@@ -1,0 +1,160 @@
+/* Card container */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  margin: 1rem;
+  overflow: hidden;
+}
+
+/* Card image */
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  display: block;
+}
+
+/* Card body */
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+/* Card title */
+.card-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Primary button */
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: #0d6efd;
+  border: 1px solid #0d6efd;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+
+#main-logo
+{
+    height: 2em;
+    width: 9em;
+}
+#banner img
+{
+    width: 1173;
+}
+.banner-para
+{
+    width: 20%;
+    margin: 0.5em;
+}
+
+.banner-para-div
+{
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-menu
+{
+    display: flex;
+    list-style-type: none;
+    background-color: #032260;
+
+}
+
+.horizontal-menu div
+{
+    margin-right: auto;
+}
+
+
+#specific-product-section {
+    display: flex;   /* This kills the "white space" bug between divs */
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.section-product-pane {
+    width: 33.33%;  /* Exactly one third */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Crucial: prevents borders from adding to the width */
+}
+
+
+.text-button-horizontal-div
+{
+    display: flex;
+}
+
+.text-button-horizontal-div button
+{
+    margin-left: 8em;
+}
+.horizontal-products
+{
+    display: flex;
+}
+
+.horizontal-products .card
+{
+    width: 18em;
+    margin: 1px;
+}
+
+footer
+{
+    background-color: #032260;
+    display: flex;
+}
+footer h2 , footer p, footer a
+{
+    color: white;
+    font-size: small;
+}
+footer div
+{
+    margin-left: 2em;
+    margin-right: 2em;
+
+}
+
+.category-sidebar
+{
+    background-color: white;
+}
+
+.category-sidebar ul
+{
+        list-style-type: none;
+
+}
