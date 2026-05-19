@@ -30,23 +30,55 @@
     </li>
 
     <!-- Buttons -->
-    <div class="d-flex gap-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-      <li>
-        <button class="btn btn-outline-primary">Search</button>
-      </li>
+  <div class="container">
 
-      <li>
-        <button class="btn btn-outline-secondary">Customer Service</button>
-      </li>
+    <a class="navbar-brand" href="/">
+      Shop
+    </a>
 
-      <li>
-        <button class="btn btn-outline-dark">My Account</button>
-      </li>
+    <div class="collapse navbar-collapse">
 
-      <li>
-        <button class="btn btn-outline-success">Cart</button>
-      </li>
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">
+            Cart
+          </a>
+        </li>
+
+        <% if(user) { %>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">
+              Logout
+            </a>
+          </li>
+
+        <% } else { %>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/login">
+              Login
+            </a>
+          </li>
+
+        <% } %>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
 
       <!-- AUTH BUTTONS -->
       <% if (!user) { %>
@@ -79,7 +111,7 @@
     <!-- Hero banner section -->
     <section id="banners">
       <div id="topmost-banner">
-      <img  id="banner-img" src="/assets/weak_1_pk_size_02.jpg" alt="" />
+     <!---- <img  id="banner-img" src="/assets/weak_1_pk_size_02.jpg" alt="" /> -->
       </div>
       <div class="banner-para-div">
         <p class="banner-para">100% Geniune Products</p>
@@ -180,9 +212,12 @@
               ⭐ <%= product.rating %>
             </p>
 
-            <button class="btn btn-success w-100">
-              Add to Cart
-            </button>
+            <button
+  class="btn btn-success w-100 add-to-cart"
+  data-id="<%= product._id %>"
+>
+  Add to Cart
+</button>
 
           </div>
 
@@ -526,3 +561,45 @@
     <script src="/js/script.js"></script>
   </body>
 </html>
+
+
+<script>
+document.querySelectorAll('.add-to-cart')
+  .forEach(button => {
+
+    button.addEventListener('click', async () => {
+
+      const id = button.getAttribute('data-id');
+
+      const res = await fetch(`/cart/add/${id}`, {
+        method: 'GET'
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+
+        // update cart counter if exists
+        const cartCount =
+          document.querySelector('#cart-count');
+
+        if (cartCount) {
+          cartCount.innerText =
+            data.cartCount;
+        }
+
+        // optional UI feedback
+        button.innerText = "Added ✔";
+        button.disabled = true;
+
+        setTimeout(() => {
+          button.innerText = "Add to Cart";
+          button.disabled = false;
+        }, 1000);
+
+      }
+
+    });
+
+  });
+</script>

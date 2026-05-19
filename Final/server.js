@@ -7,17 +7,24 @@ const path = require('path');
 const session = require('express-session');
 const MongoStore = require('connect-mongo').default;
 
-const Product = require('./models/Products');
-
-const adminRoutes = require('./routes/admin_routes');
-const authRoutes = require('./routes/auth_routes');
+/* =========================
+   APP INIT
+========================= */
+const app = express();
 
 /* =========================
-   NEW: API ROUTES (JWT)
+   ROUTES
 ========================= */
+const adminRoutes = require('./routes/admin_routes');
+const authRoutes = require('./routes/auth_routes');
 const apiRoutes = require('./routes/api_v1');
+const cartRoutes = require('./routes/cartRoutes');
+const adminAnalyticsRoutes = require('./routes/adminAnalyticsRoutes');
 
-const app = express();
+/* =========================
+   CONTROLLERS
+========================= */
+const productController = require('./controllers/productController');
 
 /* =========================
    DATABASE CONNECTION
@@ -41,10 +48,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 /* =========================
-   SESSION (EXISTING SYSTEM)
+   SESSION SETUP
 ========================= */
 app.use(session({
-  secret: 'ecommerceSecretKey',
+  secret: process.env.SESSION_SECRET || 'ecommerceSecretKey',
   resave: false,
   saveUninitialized: false,
 
@@ -58,7 +65,7 @@ app.use(session({
 }));
 
 /* =========================
-   GLOBAL USER FOR EJS
+   GLOBAL USER (EJS ACCESS)
 ========================= */
 app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
@@ -66,72 +73,32 @@ app.use((req, res, next) => {
 });
 
 /* =========================
-   ROUTES (EJS SYSTEM)
+   ROUTE MOUNTING (ORDER MATTERS)
 ========================= */
 app.use('/', authRoutes);
 app.use('/', adminRoutes);
+app.use('/', cartRoutes);
+app.use('/', adminAnalyticsRoutes);
 
-/* =========================
-   NEW: JWT API SYSTEM
-========================= */
+/* API (separate system) */
 app.use('/api/v1', apiRoutes);
 
 /* =========================
-   HOME PAGE (EJS FRONTEND)
+   HOME PAGE (SSR via controller)
 ========================= */
-app.get('/', async (req, res) => {
-  try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = 8;
-    const skip = (page - 1) * limit;
+app.get('/', productController.getHomeProducts);
 
-    const search = req.query.search || '';
-    const category = req.query.category || '';
-    const minPrice = Number(req.query.minPrice) || 0;
-    const maxPrice = Number(req.query.maxPrice) || 99999;
-
-    let query = {};
-
-    if (search) {
-      query.name = { $regex: search, $options: 'i' };
-    }
-
-    if (category) {
-      query.category = category;
-    }
-
-    query.price = {
-      $gte: minPrice,
-      $lte: maxPrice
-    };
-
-    const products = await Product.find(query)
-      .skip(skip)
-      .limit(limit);
-
-    const totalProducts = await Product.countDocuments(query);
-    const totalPages = Math.ceil(totalProducts / limit);
-
-    res.render('home', {
-      products,
-      currentPage: page,
-      totalPages,
-      search,
-      category,
-      minPrice,
-      maxPrice
-    });
-
-  } catch (error) {
-    console.log('Server Error:', error);
-    res.status(500).send('Server Error');
-  }
+/* =========================
+   404 HANDLER (OPTIONAL BUT GOOD)
+========================= */
+app.use((req, res) => {
+  res.status(404).send('Page Not Found');
 });
 
 /* =========================
    START SERVER
 ========================= */
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
